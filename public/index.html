@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    
+    <script>
+        fetch('/todos')
+          .then(response => response.json())
+          .then(todos => {
+            const todosList = document.getElementById('todosList');
+            todos.forEach(todo => {
+              const listItem = document.createElement('li');
+              listItem.textContent = todo.title;
+              todosList.appendChild(listItem);
+            });
+          })
+          .catch(error => console.log(error));
+    </script>
+    <h1>Todo List</h1>
+    <ul id="todosList"></ul>
+</body>
+</html>
